@@ -1,0 +1,28 @@
+<div class="demo-container">
+  <h1>Welcome to Younited Web EcoMode Demo!</h1>
+
+  <div class="info-panel">
+    <h2>Current Eco Mode: <span [class]="'mode-' + ecoModeLevel().toLowerCase()">{{ ecoModeLevel() }}</span></h2>
+    <p>The animation intensity changes based on the eco mode level:</p>
+    <ul>
+      <li><strong>High (Good Conditions):</strong> Maximum animation (100 particles) - Simulating high resource usage</li>
+      <li><strong>Medium (Average Conditions):</strong> Reduced animation (20 particles) - Moderate resource usage</li>
+      <li><strong>Low (Poor Conditions):</strong> No animation - Energy saving mode</li>
+    </ul>
+  </div>
+
+  <yuc-web-eco-mode-widget></yuc-web-eco-mode-widget>
+
+  <!-- Resource-consuming animation container -->
+  <div class="animation-container" [class.hidden]="ecoModeLevel() === 'Low'">
+    <div class="particle"
+         *ngFor="let particle of particleCount(); trackBy: trackByIndex"
+         [style.animation-duration]="getAnimationDuration() + 's'"
+         [style.left]="(particle * 13) % 100 + '%'"
+         [style.animation-delay]="(particle * 0.1) + 's'">
+    </div>
+  </div>
+
+  <router-outlet></router-outlet>
+</div>
+

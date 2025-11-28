@@ -1,0 +1,23 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2020", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@younited/web-eco-mode-angular": ["libs/web-eco-mode-angular/src/index.ts"],
+      "@younited/web-eco-mode-core": ["libs/web-eco-mode-core/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

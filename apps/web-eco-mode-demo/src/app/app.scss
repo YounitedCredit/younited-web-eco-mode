@@ -1,0 +1,115 @@
+.demo-container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  min-height: 100vh;
+}
+
+h1 {
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.info-panel {
+  background: #f5f5f5;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  h2 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    color: #333;
+  }
+
+  p {
+    margin-bottom: 0.5rem;
+    color: #666;
+  }
+
+  ul {
+    margin: 0.5rem 0;
+    padding-left: 1.5rem;
+
+    li {
+      margin-bottom: 0.5rem;
+      color: #666;
+      line-height: 1.6;
+    }
+  }
+
+  .mode-high {
+    color: #d32f2f;
+    font-weight: bold;
+  }
+
+  .mode-medium {
+    color: #f57c00;
+    font-weight: bold;
+  }
+
+  .mode-low {
+    color: #388e3c;
+    font-weight: bold;
+  }
+}
+
+.animation-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+
+  &.hidden {
+    opacity: 0;
+    display: none;
+  }
+}
+
+.particle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: radial-gradient(circle, #4fc3f7 0%, #0288d1 100%);
+  border-radius: 50%;
+  animation: float-up linear infinite;
+  box-shadow: 0 0 10px rgba(79, 195, 247, 0.5);
+  opacity: 0.7;
+}
+
+@keyframes float-up {
+  0% {
+    transform: translateY(100vh) scale(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.7;
+  }
+  90% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(-100px) scale(1.5) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+yuc-web-eco-mode-widget {
+  position: relative;
+  z-index: 10;
+  display: block;
+  margin-bottom: 2rem;
+}
+
+router-outlet {
+  position: relative;
+  z-index: 10;
+}

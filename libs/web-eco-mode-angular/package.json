@@ -1,0 +1,19 @@
+{
+  "name": "@younited/web-eco-mode-angular",
+  "version": "0.0.1",
+  "description": "Angular wrapper for web-eco-mode-core library. Provides Angular components and services for monitoring eco-friendly metrics.",
+  "keywords": ["angular", "eco-mode", "battery", "network", "performance", "sustainability"],
+  "author": "younited",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YounitedCredit/younited-web-eco-mode"
+  },
+  "peerDependencies": {
+    "@angular/common": "^20.1.0",
+    "@angular/core": "^20.1.0",
+    "rxjs": "^7.8.0",
+    "@younited/web-eco-mode-core": "^0.0.1"
+  },
+  "sideEffects": false
+}

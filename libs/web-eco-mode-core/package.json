@@ -1,0 +1,22 @@
+{
+  "name": "@younited/web-eco-mode-core",
+  "version": "0.0.1",
+  "description": "Core TypeScript library for monitoring eco-friendly metrics including battery status and network quality. Framework-agnostic.",
+  "keywords": ["eco-mode", "battery", "network", "performance", "sustainability", "rxjs"],
+  "author": "younited",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YounitedCredit/younited-web-eco-mode"
+  },
+  "type": "commonjs",
+  "main": "./src/index.js",
+  "types": "./src/index.d.ts",
+  "peerDependencies": {
+    "rxjs": "^7.8.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false
+}
