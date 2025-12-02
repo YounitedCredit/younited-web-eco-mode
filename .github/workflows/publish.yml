@@ -41,14 +41,14 @@ jobs:
           cd dist/libs/web-eco-mode-core
           npm publish --access public --provenance
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NUGET_API_KEY  }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_API_KEY  }}
 
       - name: Publish @younited/web-eco-mode-angular
         run: |
           cd dist/libs/web-eco-mode-angular
           npm publish --access public --provenance
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NUGET_API_KEY  }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_API_KEY  }}
 
       - name: Create summary
         run: |
