@@ -1,0 +1,58 @@
+name: Publish to NPM
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to publish (leave empty to use current version)'
+        required: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write # Required for npm provenance
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build libraries
+        run: |
+          npx nx build web-eco-mode-core --configuration=production
+          npx nx build web-eco-mode-angular --configuration=production
+
+      - name: Publish @younited/web-eco-mode-core
+        run: |
+          cd dist/libs/web-eco-mode-core
+          npm publish --access public --provenance
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NUGET_API_KEY  }}
+
+      - name: Publish @younited/web-eco-mode-angular
+        run: |
+          cd dist/libs/web-eco-mode-angular
+          npm publish --access public --provenance
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NUGET_API_KEY  }}
+
+      - name: Create summary
+        run: |
+          echo "## 📦 Published Packages" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "✅ @younited/web-eco-mode-core" >> $GITHUB_STEP_SUMMARY
+          echo "✅ @younited/web-eco-mode-angular" >> $GITHUB_STEP_SUMMARY
